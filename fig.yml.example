@@ -1,0 +1,5 @@
+zoia:
+  build: .
+  env:
+    FREENODE_PASSWORD: <password>
+

@@ -8,13 +8,15 @@ RUN pip install supervisor
 RUN pip install -r https://raw.githubusercontent.com/ProgVal/Limnoria/master/requirements.txt --user --upgrade
 RUN pip install git+https://github.com/ProgVal/Limnoria.git@master --upgrade
 
-ADD supervisord.conf /etc/supervisord.conf
 ADD run.sh /run.sh
 RUN chmod 755 /run.sh
 
 RUN useradd -ms /bin/bash zoia
 RUN git clone https://github.com/code4lib/supybot-plugins.git /home/zoia/supybot-plugins
-ADD zoia.conf /home/zoia/zoia.conf
+ADD supybot /home/zoia/supybot
+ADD supervisord.conf /home/zoia/supervisord.conf
+RUN mkdir /home/zoia/supervisord
 RUN chown -R zoia /home/zoia
 
+USER zoia
 CMD ["/run.sh"]

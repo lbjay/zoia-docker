@@ -2,4 +2,6 @@ zoia:
   build: .
   env:
     FREENODE_PASSWORD: <password>
+    SUPYBOT_OWNER_USERNAME: <username>
+    SUPYBOT_OWNER_PASSWORD: <password>
 
